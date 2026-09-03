@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- 카카오톡 인앱 브라우저 → 외부 브라우저 강제 전환 (마이크/WebRTC 권한 위함) -->
+    <script>
+    (function(){
+      var ua = navigator.userAgent || '';
+      if (/KAKAOTALK/i.test(ua)) {
+        var currentUrl = location.href;
+        if (/Android/i.test(ua)) {
+          location.href = 'intent://' + currentUrl.replace(/https?:\/\//, '') +
+            '#Intent;scheme=https;package=com.android.chrome;end';
+          return;
+        }
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+          location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(currentUrl);
+          return;
+        }
+      }
+    })();
+    </script>
+
+    <title>택씨 · 세금 길을 안내하는 AI 세무 도우미</title>
+    <meta name="theme-color" content="#101214" />
+    <meta name="description" content="프리랜서·1인 사업자의 세금 길잡이. 카드내역을 붙여넣으면 경비를 분류하고 예상 환급을 잡아주며, 종소세·연말정산 질문에 답합니다." />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="택씨 · 세금 길을 안내하는 AI 세무 도우미" />
+    <meta property="og:description" content="카드내역 → 경비 자동 분류 + 예상 환급 + 세법 Q&A. 프리랜서 3.3%부터 5월 종소세까지 안내하는 세무 도우미 봇." />
+    <meta property="og:locale" content="ko_KR" />
+    <!-- 공유 썸네일. 카카오/페북 등 일부 스크래퍼는 절대 URL을 요구 → 배포 후 도메인 붙여 교체 권장 -->
+    <meta property="og:image" content="/og-thumbnail.png" />
+    <meta property="og:image:width" content="2048" />
+    <meta property="og:image:height" content="1152" />
+    <meta property="og:image:alt" content="택씨 — AI 세무 도우미" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="택씨 · 세금 길을 안내하는 AI 세무 도우미" />
+    <meta name="twitter:description" content="카드내역 → 경비 자동 분류 + 예상 환급 + 세법 Q&A. 프리랜서 3.3%부터 5월 종소세까지 안내하는 세무 도우미 봇." />
+    <meta name="twitter:image" content="/og-thumbnail.png" />
+
+    <!-- favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='74' font-size='66' text-anchor='middle'%3E%F0%9F%9A%95%3C/text%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <!-- 헤딩: Pretendard(크리스프 한글) · 라벨: JetBrains Mono(장부/기술 라벨) · 폴백: Noto Sans KR -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&family=Noto+Serif+KR:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   택씨 — 다크 영수증/터미널 테마
+   야간 택시 무드: 딥 차콜 · 택시 옐로 · 영수증 화이트. 모노스페이스 중심.
+   (다크 우선 설계이지만 라이트 토글도 지원)
+   ════════════════════════════════════════════════════════════ */
+:root {
+  --bg:            #f2f0ea;
+  --surface:       #ffffff;
+  --panel:         #fbfaf6;
+  --border:        rgba(20, 22, 20, 0.14);
+  --text:          #1a1c1a;
+  --muted:         #6d716b;
+
+  --taxi:          #f2b705;
+  --taxi-deep:     #d99e00;
+  --ink:           #16181a;
+  --meter:         #2bd47d;
+
+  --gold:          var(--taxi);
+  --gold-dim:      var(--taxi-deep);
+  --gold-deep:     var(--taxi-deep);
+  --green:         var(--meter);
+  --green-soft:    #57df97;
+  --green-deep:    #189a58;
+  --blue:          #4a90d9;
+  --blue-bg:       #e6f0fb;
+  --red:           #e5484d;
+  --red-bg:        #fbeaea;
+
+  --radius:        12px;
+  --scrollbar:     rgba(20, 22, 20, 0.22);
+  --font-mono:     'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --card-bg-from:  #23262b;
+  --card-bg-to:    #16181a;
+  --media-bg:      #16181a;
+  --stage-text:    #f2f0ea;
+  --stage-muted:   #9aa0a0;
+
+  --overlay-soft:  rgba(20, 22, 20, 0.05);
+  --overlay-track: rgba(20, 22, 20, 0.14);
+  --shadow-card:   0 14px 40px rgba(0, 0, 0, 0.14);
+  --shadow-media:  0 14px 42px rgba(0, 0, 0, 0.3);
+}
+
+/* 택씨는 다크를 기본 무드로 밀어붙인다 */
+:root {
+  --bg:            #101214;
+  --surface:       #181b1e;
+  --panel:         #14171a;
+  --border:        rgba(242, 240, 234, 0.10);
+  --text:          #eef0ec;
+  --muted:         #8b9089;
+  --card-bg-from:  #20242a;
+  --card-bg-to:    #111417;
+  --media-bg:      #101214;
+  --stage-text:    #eef0ec;
+  --stage-muted:   #8b9089;
+  --overlay-soft:  rgba(255,255,255,0.045);
+  --overlay-track: rgba(255,255,255,0.11);
+  --shadow-card:   0 20px 60px rgba(0,0,0,0.5);
+  --scrollbar:     rgba(255,255,255,0.15);
+}
+
+[data-theme="light"] {
+  --bg:            #f2f0ea;
+  --surface:       #ffffff;
+  --panel:         #fbfaf6;
+  --border:        rgba(20, 22, 20, 0.14);
+  --text:          #1a1c1a;
+  --muted:         #6d716b;
+  --card-bg-from:  #23262b;
+  --card-bg-to:    #16181a;
+  --media-bg:      #16181a;
+  --stage-text:    #f2f0ea;
+  --stage-muted:   #9aa0a0;
+  --overlay-soft:  rgba(20,22,20,0.05);
+  --overlay-track: rgba(20,22,20,0.14);
+  --shadow-card:   0 14px 40px rgba(0,0,0,0.12);
+  --scrollbar:     rgba(20,22,20,0.22);
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+html, body, #root {
+  min-height: 100%;
+  font-family: 'Pretendard Variable', Pretendard, 'Noto Sans KR', -apple-system, sans-serif;
+  color: var(--text);
+}
+html, body { background: var(--bg); }
+body { overflow-x: hidden; }
+
+.mono { font-family: var(--font-mono); }
+::selection { background: rgba(242, 183, 5, 0.28); }
+::-webkit-scrollbar { width: 9px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 3px; }

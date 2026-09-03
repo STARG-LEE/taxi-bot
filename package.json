@@ -1,0 +1,34 @@
+{
+  "name": "taxi-bot",
+  "version": "0.1.0",
+  "description": "택씨 — 세무 도우미 봇 (CHA University · Team 02)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@pixiv/three-vrm": "^3.5.2",
+    "openai": "^4.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "three": "^0.184.0"
+  },
+  "main": "index.js",
+  "keywords": [
+    "vrm",
+    "vroid",
+    "three-vrm",
+    "ai-bot",
+    "chatbot",
+    "avatar",
+    "starter-kit"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.0.1",
+    "vite": "^8.0.10"
+  },
+  "type": "module"
+}

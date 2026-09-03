@@ -1,0 +1,139 @@
+/* 택씨 — 다크 영수증/터미널. 차콜 + 택시 옐로 + 미터 그린. 모노 라벨. */
+
+.page { max-width: 100%; overflow-x: hidden; }
+
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 24px;
+  padding: 13px clamp(18px, 5vw, 60px);
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: flex; align-items: center; gap: 9px; }
+.roof {
+  width: 26px; height: 12px; border-radius: 3px 3px 1px 1px;
+  background: var(--taxi); box-shadow: 0 0 14px rgba(242, 183, 5, 0.5);
+  display: inline-block;
+}
+.brandName { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; }
+.brandTag { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.14em; }
+.navLinks { display: flex; gap: 22px; margin-left: auto; }
+.navLinks a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
+.navLinks a:hover { color: var(--taxi); }
+.navRight { display: flex; align-items: center; gap: 10px; }
+.themeBtn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 0.95rem; cursor: pointer; padding: 5px 9px; }
+.navCta {
+  background: var(--taxi); color: #16181a; border: none;
+  padding: 9px 18px; border-radius: 8px; font-weight: 800; font-size: 0.88rem; cursor: pointer; font-family: inherit;
+}
+.navCta:hover { background: var(--taxi-deep); }
+
+/* 히어로 */
+.hero {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(28px, 5vw, 64px);
+  align-items: center; padding: clamp(46px, 8vw, 92px) clamp(18px, 5vw, 60px);
+  max-width: 1180px; margin: 0 auto;
+}
+.eyebrow { font-size: 0.74rem; letter-spacing: 0.12em; color: var(--taxi); text-transform: uppercase; margin-bottom: 18px; }
+.title { font-size: clamp(2.3rem, 5.4vw, 3.8rem); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; }
+.hl { color: var(--taxi); }
+.lede { margin: 22px 0 30px; font-size: 1.05rem; line-height: 1.75; color: var(--muted); max-width: 46ch; }
+.heroBtns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.primary {
+  background: var(--taxi); color: #16181a; border: none;
+  padding: 14px 24px; border-radius: 10px; font-weight: 800; font-size: 1rem; cursor: pointer; font-family: inherit;
+  box-shadow: 0 10px 26px rgba(242, 183, 5, 0.24); transition: transform 0.15s, background 0.15s;
+}
+.primary:hover { background: var(--taxi-deep); transform: translateY(-2px); }
+.ghost { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.92rem; padding: 12px 6px; }
+.ghost:hover { color: var(--taxi); }
+
+/* 미터기 영수증 카드 */
+.meter {
+  background: linear-gradient(180deg, #1c2024, #121417);
+  border: 1px solid rgba(242, 183, 5, 0.2); border-radius: 14px;
+  padding: 22px; box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+.meterHead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+.meterLabel { font-family: var(--font-mono); font-size: 0.78rem; color: #cfd3cd; letter-spacing: 0.1em; }
+.meterOn { font-family: var(--font-mono); font-size: 0.74rem; color: var(--meter); }
+.receipt {
+  background: #0d0f11; border-radius: 10px; padding: 18px 16px;
+  font-family: var(--font-mono); border: 1px dashed rgba(255,255,255,0.12);
+}
+.rRow { display: flex; justify-content: space-between; padding: 7px 0; font-size: 0.9rem; color: #d7dbd5; }
+.rRow b { color: #eef0ec; }
+.neg { color: #e5787c !important; }
+.pos { color: var(--meter) !important; }
+.rDash { border-top: 1px dashed rgba(255,255,255,0.18); margin: 8px 0; }
+.rTotal { font-size: 1.05rem; }
+.rTotal span { color: var(--taxi); }
+.meterFoot { margin-top: 14px; font-size: 0.74rem; color: #7f847d; text-align: center; }
+
+/* 섹션 헤더 */
+.secHead { text-align: center; margin-bottom: 38px; }
+.secKicker { font-size: 0.72rem; letter-spacing: 0.16em; color: var(--taxi); }
+.secTitle { font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 800; margin-top: 10px; letter-spacing: -0.01em; }
+
+/* 경비 판별 */
+.expense { padding: clamp(50px, 8vw, 92px) clamp(18px, 5vw, 60px); max-width: 1080px; margin: 0 auto; }
+.expGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.exp {
+  display: flex; gap: 16px; align-items: flex-start; text-align: left;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 20px; cursor: pointer; font-family: inherit; transition: transform 0.15s, border-color 0.15s;
+}
+.exp:hover { transform: translateY(-2px); }
+.expOk:hover { border-color: color-mix(in srgb, var(--meter) 50%, var(--border)); }
+.expNo:hover { border-color: color-mix(in srgb, var(--red) 50%, var(--border)); }
+.expMark {
+  flex: 0 0 auto; width: 34px; height: 34px; border-radius: 9px;
+  display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 1.05rem;
+}
+.expOk .expMark { background: color-mix(in srgb, var(--meter) 18%, transparent); color: var(--meter); }
+.expNo .expMark { background: color-mix(in srgb, var(--red) 16%, transparent); color: var(--red); }
+.exp b { font-size: 1rem; }
+.exp p { color: var(--muted); font-size: 0.88rem; margin-top: 4px; line-height: 1.55; }
+.expLine { text-align: center; margin-top: 30px; font-size: 1.08rem; color: var(--text); }
+
+/* 환급 공제 */
+.deduct {
+  background: var(--panel); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: clamp(50px, 8vw, 92px) clamp(18px, 5vw, 60px);
+}
+.dList { max-width: 760px; margin: 0 auto 32px; }
+.dRow { padding: 20px 4px; border-bottom: 1px solid var(--border); }
+.dName { display: flex; align-items: baseline; gap: 12px; margin-bottom: 6px; }
+.dName b { font-size: 1.12rem; }
+.dWho { font-family: var(--font-mono); font-size: 0.72rem; color: var(--taxi); background: color-mix(in srgb, var(--taxi) 14%, transparent); padding: 3px 9px; border-radius: 999px; }
+.dTip { color: var(--muted); line-height: 1.6; font-size: 0.95rem; }
+.deduct .primary { display: block; margin: 0 auto; }
+
+/* 세금 달력 */
+.cal { padding: clamp(50px, 8vw, 92px) clamp(18px, 5vw, 60px); max-width: 1000px; margin: 0 auto; }
+.calGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.calCard {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+  padding: 24px 18px; display: flex; flex-direction: column; gap: 8px;
+  border-left: 3px solid var(--taxi);
+}
+.calWhen { font-size: 0.8rem; color: var(--taxi); }
+.calCard b { font-size: 1.05rem; }
+.calWho { color: var(--muted); font-size: 0.85rem; }
+
+/* 푸터 */
+.footer { background: #0c0e10; color: #cfd3cd; padding: 46px clamp(18px, 5vw, 60px); text-align: center; border-top: 1px solid var(--border); }
+.footBrand { font-size: 1.3rem; font-weight: 800; margin-bottom: 10px; }
+.footBrand .mono { font-size: 0.8rem; color: var(--taxi); }
+.footer p { opacity: 0.82; font-size: 0.9rem; margin-top: 6px; }
+.footFine { max-width: 580px; margin: 14px auto 0 !important; opacity: 0.6 !important; font-size: 0.82rem !important; line-height: 1.6; }
+.footTeam { margin-top: 18px !important; font-size: 0.76rem !important; opacity: 0.5 !important; }
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; }
+  .meter { margin-top: 6px; }
+  .expGrid { grid-template-columns: 1fr; }
+  .calGrid { grid-template-columns: 1fr 1fr; }
+  .navLinks { display: none; }
+}
