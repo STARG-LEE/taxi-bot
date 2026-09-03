@@ -122,6 +122,18 @@ export default function TutorBotWidget() {
             {bot.messages.map((m, i) => <Bubble key={i} msg={m} />)}
           </div>
 
+          {/* 추천 질문 칩 — 눌러서 바로 물어볼 수 있는 제안 */}
+          <div className={styles.chips}>
+            {BOT.quickActions.map((q) => (
+              <button
+                key={q.label}
+                className={styles.chip}
+                disabled={bot.isProcessing}
+                onClick={() => bot.sendMessage(q.prompt)}
+              >{q.label}</button>
+            ))}
+          </div>
+
           {/* 입력 */}
           <div className={styles.inputRow}>
             <button
