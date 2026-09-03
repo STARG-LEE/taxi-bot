@@ -99,7 +99,7 @@ export default function TutorBotWidget() {
                 title={bot.voiceEnabled ? '음성 끄기' : '음성 켜기'}
                 aria-label="음성 토글"
               >{bot.voiceEnabled ? '🔊' : '🔇'}</button>
-              <button className={styles.iconBtn} onClick={() => setOpen(false)} title="닫기" aria-label="닫기">✕</button>
+              <button className={styles.iconBtn} onClick={() => { bot.interrupt(); setOpen(false) }} title="닫기" aria-label="닫기">✕</button>
             </div>
           </div>
 
@@ -120,18 +120,6 @@ export default function TutorBotWidget() {
           {/* 메시지 */}
           <div className={styles.messages} ref={messagesRef}>
             {bot.messages.map((m, i) => <Bubble key={i} msg={m} />)}
-          </div>
-
-          {/* 5단계 퀵액션 칩 */}
-          <div className={styles.chips}>
-            {BOT.quickActions.map((q) => (
-              <button
-                key={q.label}
-                className={styles.chip}
-                disabled={bot.isProcessing}
-                onClick={() => bot.sendMessage(q.prompt)}
-              >{q.label}</button>
-            ))}
           </div>
 
           {/* 입력 */}

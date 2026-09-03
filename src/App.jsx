@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react'
 import styles from './App.module.css'
 import TutorBotWidget from './components/TutorBotWidget'
-import { askBot, openBot } from './lib/botBus'
+import { openBot } from './lib/botBus'
+// 랜딩 버튼은 봇을 '열기만' 한다. (하드코딩 질문 자동전송 제거)
+const askBot = () => openBot()
 import { EXPENSES, DEDUCTIONS, CALENDAR } from './data/knowledge'
 
 function useTheme() {
