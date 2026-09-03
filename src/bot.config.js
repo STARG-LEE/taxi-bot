@@ -24,4 +24,9 @@ export const BOT = {
     ['3\\.3%', '삼점삼 퍼센트'],
     ['\\bkₙ\\b', ''],
   ],
+  // 2D 마스코트 생김새 (색·소품). 봇마다 달라 얼굴이 겹치지 않는다.
+  mascot: {
+    face: '#f2cf6a', faceEdge: '#d9a92f', cheek: '#e08a4c',
+    accent: '#1a1c1a', icon: '🚕', eye: 'round',
+  },
 }

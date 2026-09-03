@@ -2,13 +2,11 @@
 // 패널 = 작은 VRM 아바타 + 채팅 + 5단계 퀵액션 칩 + 음성/마이크.
 // botBus 를 구독해 랜딩 페이지의 봇 호출로 자동 열림 + 질문 전송.
 
-import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import styles from './TutorBotWidget.module.css'
 import { useTutorBot } from '../hooks/useTutorBot'
 import { BOT } from '../bot.config'
-
-// 무거운 three.js/VRM은 위젯을 처음 열 때만 로드 → 랜딩 초기 번들 경량화.
-const VRMAvatar = lazy(() => import('./VRMAvatar'))
+import MascotAvatar from './MascotAvatar'
 import { BOT_EVENTS, onBot } from '../lib/botBus'
 
 
@@ -107,15 +105,12 @@ export default function TutorBotWidget() {
 
           {/* 작은 아바타 */}
           <div className={`${styles.avatarStage} ${speaking ? styles.avatarSpeaking : ''}`}>
-            <Suspense fallback={null}>
-              <VRMAvatar
-                ref={bot.vrmAvatarRef}
-                vrmUrl="/avatar.vrm"
-                onReady={bot.onAvatarReady}
-                onError={() => {}}
-                style={{ opacity: bot.avatarReady ? 1 : 0, transition: 'opacity .35s ease' }}
-              />
-            </Suspense>
+            <MascotAvatar
+              ref={bot.vrmAvatarRef}
+              onReady={bot.onAvatarReady}
+              onError={() => {}}
+              style={{ opacity: bot.avatarReady ? 1 : 0, transition: 'opacity .35s ease' }}
+            />
             {!bot.avatarReady && <div className={styles.avatarLoading}><span className={styles.spinner} /></div>}
             {speaking && (
               <button className={styles.interrupt} onClick={bot.interrupt} title="그만 말하기">⏸ 그만</button>
